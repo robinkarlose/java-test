@@ -16,7 +16,8 @@ import java.util.List;
 
 @Path("/users")
 @Repository
-public class UserResource{
+public class UserResource
+{
 
     public UserDao userDao;
 
@@ -24,14 +25,16 @@ public class UserResource{
     @Path("add/")
     public Response addUser(@QueryParam("name") String name,
                             @QueryParam("email") String email,
-                            @QueryParam("role") List<String> roles) {
+                            @QueryParam("role") List<String> roles)
+    {
 
         User user = new User();
         user.setName(name);
         user.setEmail(email);
         user.setRoles(roles);
 
-        if (userDao == null) {
+        if (userDao == null)
+        {
             userDao = UserDao.getUserDao();
         }
 
@@ -43,14 +46,16 @@ public class UserResource{
     @Path("update/")
     public Response updateUser(@QueryParam("name") String name,
                                @QueryParam("email") String email,
-                               @QueryParam("role") List<String> roles) {
+                               @QueryParam("role") List<String> roles)
+    {
 
         User user = new User();
         user.setName(name);
         user.setEmail(email);
         user.setRoles(roles);
 
-        if (userDao == null) {
+        if (userDao == null)
+        {
             userDao = UserDao.getUserDao();
         }
 
@@ -62,13 +67,15 @@ public class UserResource{
     @Path("delete/")
     public Response deleteUser(@QueryParam("name") String name,
                                @QueryParam("email") String email,
-                               @QueryParam("role") List<String> roles) {
+                               @QueryParam("role") List<String> roles)
+    {
         User user = new User();
         user.setName(name);
         user.setEmail(email);
         user.setRoles(roles);
 
-        if (userDao == null) {
+        if (userDao == null)
+        {
             userDao = UserDao.getUserDao();
         }
 
@@ -78,14 +85,16 @@ public class UserResource{
 
     @GET
     @Path("find/")
-    public Response getUsers() {
+    public Response getUsers()
+    {
     	
         ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {
     		"classpath:/application-config.xml"	
     	});
     	userDao = context.getBean(UserDao.class);
     	List<User> users = userDao.getUsers();
-    	if (users == null) {
+    	if (users == null)
+    	{
     		users = new ArrayList<User>();
     	}
 
@@ -95,9 +104,11 @@ public class UserResource{
 
     @GET
     @Path("search/")
-    public Response findUser(@QueryParam("name") String name) {
+    public Response findUser(@QueryParam("name") String name)
+    {
 
-        if (userDao == null) {
+        if (userDao == null)
+        {
             userDao = UserDao.getUserDao();
         }
 

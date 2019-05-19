@@ -6,12 +6,14 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class UserDaoUnitTest {
+public class UserDaoUnitTest
+{
 
     UserDao userDao;
 
     @Test
-    public void saveUserTest() {
+    public void saveUserTest()
+    {
         userDao = UserDao.getUserDao();
 
         User user = new User();
@@ -23,7 +25,8 @@ public class UserDaoUnitTest {
     }
 
     @Test
-    public void deleteUserTest() {
+    public void deleteUserTest()
+    {
         userDao = UserDao.getUserDao();
 
         User user = new User();
@@ -31,7 +34,8 @@ public class UserDaoUnitTest {
         user.setEmail("fake@email.com");
         user.setRoles(Arrays.asList("admin", "master"));
 
-        try {
+        try
+        {
             userDao.deleteUser(user);
         } catch (NullPointerException e) {
         }

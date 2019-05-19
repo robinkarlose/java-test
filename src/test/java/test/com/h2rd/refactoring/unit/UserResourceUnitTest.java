@@ -8,13 +8,15 @@ import org.junit.Test;
 
 import javax.ws.rs.core.Response;
 
-public class UserResourceUnitTest {
+public class UserResourceUnitTest
+{
 
     UserResource userResource;
     UserDao userDao;
 
     @Test
-    public void getUsersTest() {
+    public void getUsersTest()
+    {
 
         userResource = new UserResource();
         userDao = UserDao.getUserDao();
