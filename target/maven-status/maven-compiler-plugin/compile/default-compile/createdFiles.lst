@@ -1,4 +1,8 @@
+com\h2rd\refactoring\web\UserResource$2.class
+com\h2rd\refactoring\SpringConfiguration.class
+com\h2rd\refactoring\web\UserResource.class
+com\h2rd\refactoring\ConcurrencyService$1.class
 com\h2rd\refactoring\usermanagement\User.class
 com\h2rd\refactoring\web\UserResource$1.class
-com\h2rd\refactoring\web\UserResource.class
+com\h2rd\refactoring\ConcurrencyService.class
 com\h2rd\refactoring\usermanagement\UserDao.class

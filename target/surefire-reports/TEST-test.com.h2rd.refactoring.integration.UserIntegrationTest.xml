@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="test.com.h2rd.refactoring.integration.UserIntegrationTest" time="0.058" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="test.com.h2rd.refactoring.integration.UserIntegrationTest" time="0.066" errors="0" skipped="2">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\bin"/>
     <property name="java.vm.version" value="25.181-b13"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="D:\C Resumes 1\SAP job 1 - Java files\java-test"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\SAPR1temp\java-test"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="D:\C Resumes 1\SAP job 1 - Java files\java-test"/>
+    <property name="user.dir" value="D:\SAPR1temp\java-test"/>
     <property name="java.runtime.version" value="1.8.0_181-b13"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\endorsed"/>
@@ -65,6 +65,15 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="test.com.h2rd.refactoring.integration.UserIntegrationTest" name="createUserTest" time="0.058"/>
-  <testcase classname="test.com.h2rd.refactoring.integration.UserIntegrationTest" name="updateUserTest" time="0"/>
+  <testcase classname="test.com.h2rd.refactoring.integration.UserIntegrationTest" name="createIntegrationTest1" time="0.063"/>
+  <testcase classname="test.com.h2rd.refactoring.integration.UserIntegrationTest" name="createFindUserTest1" time="0"/>
+  <testcase classname="test.com.h2rd.refactoring.integration.UserIntegrationTest" name="createUpdateDeleteUserTest1" time="0"/>
+  <testcase classname="test.com.h2rd.refactoring.integration.UserIntegrationTest" name="createUserTest2" time="0.001"/>
+  <testcase classname="test.com.h2rd.refactoring.integration.UserIntegrationTest" name="updateUserTest2" time="0"/>
+  <testcase classname="test.com.h2rd.refactoring.integration.UserIntegrationTest" name="createUserTest" time="0.001">
+    <skipped message="null values for role parameter"/>
+  </testcase>
+  <testcase classname="test.com.h2rd.refactoring.integration.UserIntegrationTest" name="updateUserTest" time="0.001">
+    <skipped message="null values for role parameter"/>
+  </testcase>
 </testsuite>
