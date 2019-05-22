@@ -1,30 +1,50 @@
 package com.h2rd.refactoring.usermanagement;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.ConcurrentModificationException;
+
 
 public class UserDao
 {
 
     public ArrayList<User> users;
 
-    public static UserDao userDao;
+    public static UserDao userDaobj;
 
     public static UserDao getUserDao()
     {
-        if (userDao == null)
+        if (userDaobj == null)
         {
-            userDao = new UserDao();
+            userDaobj = new UserDao();
         }
-        return userDao;
+        return userDaobj;
     }
 
-    public void saveUser(User user)
+    public void saveUser(User suser)
     {
-        if (users == null)
+        try
         {
-            users = new ArrayList<User>();
+            if (users == null)
+            {
+                users = new ArrayList<User>();
+            }
+            if (suser.roles.isEmpty())
+                throw new RuntimeException();
+            users.add(suser);
         }
-        users.add(user);
+        catch (RuntimeException re)
+        {
+            System.out.println("User must be defined at least one role");
+            System.out.println("Error - try adding again with a non null role");
+
+        }
+        /*
+        catch (Throwable e)
+        {
+            e.printStackTrace();
+
+        }*/
     }
 
     public ArrayList<User> getUsers()
@@ -35,7 +55,7 @@ public class UserDao
         }
         catch (Throwable e)
         {
-            System.out.println("error");
+            System.out.println("Error in getUsers method");
             return null;
         }
     }
@@ -44,18 +64,23 @@ public class UserDao
     {
         try
         {
-            for (User user : users)
+            for (User userIter : users)
             {
-                if (user.getName() == userToDelete.getName())
+                if (userIter.getEmail() == userToDelete.getEmail())
                 {
-                    users.remove(user);
+                    users.remove(userIter);
                 }
             }
         }
-        catch (Exception e)
+        catch (ConcurrentModificationException e)
+        {
+            e.getMessage();
+        }
+        catch (Throwable e)
         {
             e.printStackTrace();
         }
+
     }
 
     public void updateUser(User userToUpdate)
@@ -64,26 +89,27 @@ public class UserDao
         {
             for (User user : users)
             {
-                if (user.getName() == userToUpdate.getName())
+                if (user.getEmail() == userToUpdate.getEmail())
                 {
-                    user.setEmail(userToUpdate.getEmail());
+                    user.setName(userToUpdate.getName());
                     user.setRoles(userToUpdate.getRoles());
                 }
             }
-        } catch (RuntimeException e)
+        }
+        catch (Throwable e)
         {
             e.printStackTrace();
         }
     }
 
-    public User findUser(String name)
+    public User findUser(String email)
     {
         try {
-            for (User user : users)
+            for (User userIter : users)
             {
-                if (user.getName() == name)
+                if (userIter.getEmail() == email)
                 {
-                    return user;
+                    return userIter;
                 }
             }
         }
